@@ -59,7 +59,7 @@ public class PreparedStatementParameterBuilder {
             stringBuilder.append(parameter);
             first = false;
         }
-        return String.format("[%s]", stringBuilder.toString());
+        return String.format("%s", stringBuilder.toString());
     }
 
     private int getMaxIndex() {
