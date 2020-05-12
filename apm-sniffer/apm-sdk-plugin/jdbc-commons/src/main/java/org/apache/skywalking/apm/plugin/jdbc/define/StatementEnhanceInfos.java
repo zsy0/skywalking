@@ -33,9 +33,10 @@ public class StatementEnhanceInfos {
 	private String statementName;
 	private String sql;
 	private Object[] parameters;
+	private int maxIndex = 0;
 	/** addBatch时会有多组参数 */
 	private List<Object> allParameters = new ArrayList<Object>();
-	private int maxIndex = 0;
+	private List<Integer> allMaxIndexes = new ArrayList<Integer>();
 
 	public StatementEnhanceInfos(ConnectionInfo connectionInfo, String sql, String statementName) {
 		this.connectionInfo = connectionInfo;
@@ -81,16 +82,21 @@ public class StatementEnhanceInfos {
 	public int getMaxIndex() {
 		return maxIndex;
 	}
-	
-	public void resetParameter() {
-		this.parameters = null;
-	}
 
 	public List<Object> getAllParameters() {
 		return allParameters;
 	}
 
-	public void addParaBatch(Object[] parameters) {
-		this.allParameters.add(parameters);
+	public void addParaBatch() {
+		if (this.parameters != null) {
+			this.allParameters.add(this.parameters);
+			this.allMaxIndexes.add(this.maxIndex);
+			this.parameters = null;
+			this.maxIndex = 0;
+		}
+	}
+
+	public List<Integer> getAllMaxIndexes() {
+		return allMaxIndexes;
 	}
 }

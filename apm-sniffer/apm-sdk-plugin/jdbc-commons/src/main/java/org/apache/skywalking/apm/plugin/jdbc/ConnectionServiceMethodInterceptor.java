@@ -53,13 +53,12 @@ public class ConnectionServiceMethodInterceptor implements InstanceMethodsAround
 	public final Object afterMethod(EnhancedInstance objInst, Method method, Object[] allArguments,
 			Class<?>[] argumentsTypes, Object ret) throws Throwable {
 		ConnectionInfo connectInfo = (ConnectionInfo) objInst.getSkyWalkingDynamicField();
-		System.out.println("调用了调用了");
 		if (connectInfo != null) {
 			ContextManager.stopSpan();
 			if (method.getName().equals("commit") || method.getName().equals("rollback")) {
 				String s = "[timestamp=" + System.currentTimeMillis() + "]" + "[connId="
 						+ connectInfo.getComponent().getId() + "]" + "[sql=" + method.getName() + "]";
-				System.out.println("s");
+				System.out.println(s);
 			}
 		}
 		return ret;
