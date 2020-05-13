@@ -40,6 +40,11 @@ public class ConnectionInfo {
      * Component
      */
     private final OfficialComponent component;
+    
+    /**
+     * For Lauca added by zsy
+     */
+    private int connId=0;
 
     public ConnectionInfo(OfficialComponent component, String dbType, String host, int port, String databaseName) {
         this.dbType = dbType;
@@ -74,4 +79,12 @@ public class ConnectionInfo {
     public void setDatabaseName(String dataBaseName) {
         this.databaseName = dataBaseName;
     }
+
+	public long getConnId() {
+		return connId;
+	}
+
+	public void setConnId(int connId) {
+		this.connId = connId;
+	}
 }
