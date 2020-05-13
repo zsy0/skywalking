@@ -80,7 +80,7 @@ public class ConnectionInfo {
         this.databaseName = dataBaseName;
     }
 
-	public long getConnId() {
+	public int getConnId() {
 		return connId;
 	}
 
