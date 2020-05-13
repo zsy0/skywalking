@@ -96,12 +96,12 @@ public class OracleURLParser extends AbstractURLParser {
 		String databaseName = fetchDatabaseNameFromURL();
 		if (hostSegment.length == 1) {
 			ConnectionInfo conInfo = new ConnectionInfo(ComponentsDefine.OJDBC, DB_TYPE, host, DEFAULT_PORT, databaseName);
-			conInfo.setConnId(nextConnId.getAndIncrement);
+			conInfo.setConnId(nextConnId.getAndIncrement());
 			return conInfo;
 		} else {
 			ConnectionInfo conInfo =new ConnectionInfo(ComponentsDefine.OJDBC, DB_TYPE, hostSegment[0], Integer.valueOf(hostSegment[1]),
 					databaseName);
-			conInfo.setConnId(nextConnId.getAndIncrement);
+			conInfo.setConnId(nextConnId.getAndIncrement());
 			return conInfo;
 		}
 	}
@@ -110,7 +110,7 @@ public class OracleURLParser extends AbstractURLParser {
 		String host = parseDatabaseHostsFromURL();
 		String databaseName = fetchDatabaseNameFromURL();
 		ConnectionInfo conInfo = new ConnectionInfo(ComponentsDefine.OJDBC, DB_TYPE, host, databaseName);
-		conInfo.setConnId(nextConnId.getAndIncrement);
+		conInfo.setConnId(nextConnId.getAndIncrement());
 		return conInfo;
 	}
 
