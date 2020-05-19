@@ -95,6 +95,11 @@ public class StatementEnhanceInfos {
 			this.maxIndex = 0;
 		}
 	}
+	
+	public void resetBatch() {
+		this.allParameters = new ArrayList<Object>();
+		this.allMaxIndexes = new ArrayList<Integer>();
+	}
 
 	public List<Integer> getAllMaxIndexes() {
 		return allMaxIndexes;
